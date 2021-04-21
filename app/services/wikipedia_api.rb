@@ -1,6 +1,8 @@
 require 'net/http'
 
 class WikipediaApi
+  class Error < StandardError; end
+
   BASE_URL = "https://en.wikipedia.org/w/api.php?".freeze
 
   DEFAULT_PARAMS = {
@@ -28,7 +30,12 @@ private
     url = build_url(params.merge(DEFAULT_PARAMS))
 
     response = Net::HTTP.get(URI.parse(url))
+    json = JSON.parse(response)
 
-    JSON.parse(response)
+    if json["error"]
+      raise WikipediaApi::Error.new(response["error"]["info"])
+    end
+
+    json
   end
 end

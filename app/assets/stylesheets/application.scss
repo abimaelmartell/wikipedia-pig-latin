@@ -13,8 +13,12 @@
  *= require_tree .
  *= require_self
  */
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #3c4146;
+}
 
- .container {
+.container {
    max-width: 1080px;
    margin: 0 auto;
- }
+}

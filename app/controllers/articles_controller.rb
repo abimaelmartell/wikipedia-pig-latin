@@ -15,6 +15,8 @@ private
 
   def fetch_and_create_article
     ArticleBuilder.fetch_and_create_article(article_id)
+  rescue WikipediaApi::Error => e
+    raise ActionController::RoutingError.new(e.message)
   end
 
   def set_article
