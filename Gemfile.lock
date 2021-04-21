@@ -90,6 +90,7 @@ GEM
     nio4r (2.5.7)
     nokogiri (1.11.3-x86_64-darwin)
       racc (~> 1.4)
+    pig_latin (0.0.2)
     puma (5.2.2)
       nio4r (~> 2.0)
     racc (1.5.2)
@@ -185,6 +186,8 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   listen (~> 3.3)
+  nokogiri
+  pig_latin
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.3, >= 6.1.3.1)
