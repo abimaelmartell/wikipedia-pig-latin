@@ -1,3 +1,5 @@
-<h2><%= @article.itletay %></h2>
+<% cache @article do %>
+  <h2><%= @article.itletay %></h2>
 
-<%= @article.ontentcay.html_safe %>
+  <%= @article.ontentcay.html_safe %>
+<% end %>
