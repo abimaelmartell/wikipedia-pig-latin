@@ -1,4 +1,4 @@
-class ArticleBuilder
+class ArticleFetcher
   def self.fetch_and_create_article(article_id)
     service = WikipediaApi.new
     result = service.fetch_article(article_id)
