@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WikipediaPigLatin</title>
+    <title>Wikipedia Pig Latin Translator</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,6 +10,12 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class='container'>
+      <header>
+        <h1>Wikipedia Pig Latin Translator</h1>
+      </header>
+
+      <%= yield %>
+    </div>
   </body>
 </html>
