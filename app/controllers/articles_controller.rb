@@ -1,20 +1,23 @@
 class ArticlesController < ApplicationController
-  def show
-    service = WikipediaApi.new
-    result = service.fetch_article(article_id)
+  before_action :set_article
 
-    title = result["parse"]["title"]
-    content = result["parse"]["text"]
-
-    translator = ArticleTranslator.new(title, content)
-
-    @title = translator.translated_title
-    @content = translator.translated_content
-  end
+  def show; end
 
 private
 
   def article_id
     params.require(:article_id)
+  end
+
+  def find_article
+    Article.find_by_wikipedia_id(article_id)
+  end
+
+  def fetch_and_create_article
+    ArticleBuilder.fetch_and_create_article(article_id)
+  end
+
+  def set_article
+    @article ||= find_article || fetch_and_create_article
   end
 end
